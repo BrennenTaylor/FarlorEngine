@@ -191,6 +191,7 @@ target_link_libraries(FarlorEngine
 
 target_include_directories(FarlorEngine
     PUBLIC dependencies/imgui/
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/
 )
 
 target_compile_definitions(FarlorEngine
