@@ -1,0 +1,46 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "MSVC22",
+            "displayName": "Visual Studio 2022 - amd64",
+            "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/",
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "/EHsc /W3 /wd4201 /std:c++latest /permissive-",
+                "BUILD_GMOCK": "OFF",
+                "BUILD_TESTING": "OFF",
+                "BUILD_TOOLS": "OFF"
+            }
+        },
+        {
+            "name": "Ninja22",
+            "displayName": "Ninja w/ Visual Studio 2022 - amd64",
+            "description": "Ninja using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build_ninja/",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CXX_FLAGS": "/EHsc /W3 /wd4201 /std:c++latest /permissive-",
+                "BUILD_GMOCK": "OFF",
+                "BUILD_TESTING": "OFF",
+                "BUILD_TOOLS": "OFF",
+                "BUILD_XAUDIO_WIN7": "OFF",
+                "BUILD_XAUDIO_WIN8": "OFF"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug22",
+            "configurePreset": "MSVC22",
+            "configuration": "debug"
+        },
+        {
+            "name": "Release22",
+            "configurePreset": "MSVC22",
+            "configuration": "release"
+        }
+    ]
+}
